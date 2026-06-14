@@ -15,3 +15,14 @@ document.addEventListener("click", (ev) => {
   block.querySelector(".d1").value = "";
   block.querySelector(".d2").value = "";
 });
+
+document.addEventListener("click", (ev) => {
+  if (!ev.target.classList.contains("enable-checkbox")) return;
+  const block = ev.target.closest(".dyn-block");
+  const display= block.querySelector('.enable-checkbox').checked?'':'none';
+  const el=block.querySelector('.d2');
+  if(el){
+    el.style.display = display;
+    el.value='';
+  }
+});

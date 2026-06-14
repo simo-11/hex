@@ -16,12 +16,6 @@
     max-width: 500px;
   }
 
-  .header-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
   .field {
     display: grid;
     gap: 0.25rem;
@@ -29,8 +23,7 @@
 
   textarea {
     width: 100%;
-    min-height: 120px;
-    resize: vertical;
+    min-height: 2cm;
   }
 
   .actions {
@@ -44,12 +37,12 @@
 <div class="dyn-block" id="block1">
 
   <label class="field">
-    <span>Kuvaus</span>
+    <span>Ensisijainen kuvaus</span>
     <textarea maxlength="500" class="text-input d1"></textarea>
   </label>
  
   <label class="field">
-    <span>Kuvaus<span style="display:inline-block; width:4cm;"></span>
+    <span>Kuvauksen tarkennus<span style="display:inline-block; width:4cm;"></span>
  <label>
   <input type="checkbox" class="enable-checkbox" checked>
   Aktiivinen
