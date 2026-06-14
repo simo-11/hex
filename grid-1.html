@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="UTF-8">
+<title>Testilomake</title>
+
+</head>
+
+<body>
+<style>
+  .dyn-block {
+    display: grid;
+    gap: 0.75rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    max-width: 500px;
+  }
+
+  .header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .field {
+    display: grid;
+    gap: 0.25rem;
+  }
+
+  textarea {
+    width: 100%;
+    min-height: 120px;
+    resize: vertical;
+  }
+
+  .actions {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  }
+</style>
+
+<div class="dyn-block" id="block1">
+
+  <label class="field">
+    <span>Kuvaus</span>
+    <textarea maxlength="500" class="text-input"></textarea>
+  </label>
+ 
+  <label class="field">
+    <span>Kuvaus
+ <label>
+  <input type="checkbox" class="enable-checkbox" checked>
+  Aktiivinen
+    </label>	
+	</span>
+    <textarea maxlength="500" class="text-input"></textarea>
+  </label>
+
+  <div class="actions">
+    <button class="save-btn">Save</button>
+    <button class="cancel-btn">Cancel</button>
+  </div>
+</div>
+
+<h2>Toinen lomake (päivittyy Save-napista)</h2>
+<div id="other-form">
+  <div><strong>Block 1:</strong> <span id="out1"></span></div>
+  <div><strong>Block 2:</strong> <span id="out2"></span></div>
+  <div><strong>Block 2 aktiivinen:</strong> <span id="out2active"></span></div>
+</div>
+
+<script>
+document.addEventListener("click", (ev) => {
+  if (!ev.target.classList.contains("save-btn")) return;
+
+  const block = ev.target.closest(".dyn-block");
+  const id = block.id;
+
+  const text = block.querySelector(".text-input").value;
+  const enabled = block.querySelector(".enable-checkbox")?.checked ?? true;
+
+  if (id === "block1") {
+    document.getElementById("out1").textContent = text;
+  }
+
+  if (id === "block2") {
+    document.getElementById("out2").textContent = text;
+    document.getElementById("out2active").textContent = enabled ? "kyllä" : "ei";
+  }
+});
+
+document.addEventListener("click", (ev) => {
+  if (!ev.target.classList.contains("cancel-btn")) return;
+
+  const block = ev.target.closest(".dyn-block");
+  block.querySelector(".text-input").value = "";
+});
+</script>
+
+</body>
+</html>
