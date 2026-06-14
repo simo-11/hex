@@ -45,17 +45,17 @@
 
   <label class="field">
     <span>Kuvaus</span>
-    <textarea maxlength="500" class="text-input"></textarea>
+    <textarea maxlength="500" class="text-input d1"></textarea>
   </label>
  
   <label class="field">
-    <span>Kuvaus
+    <span>Kuvaus<span style="display:inline-block; width:4cm;"></span>
  <label>
   <input type="checkbox" class="enable-checkbox" checked>
   Aktiivinen
     </label>	
 	</span>
-    <textarea maxlength="500" class="text-input"></textarea>
+    <textarea maxlength="500" class="text-input d2"></textarea>
   </label>
 
   <div class="actions">
@@ -71,32 +71,7 @@
   <div><strong>Block 2 aktiivinen:</strong> <span id="out2active"></span></div>
 </div>
 
-<script>
-document.addEventListener("click", (ev) => {
-  if (!ev.target.classList.contains("save-btn")) return;
-
-  const block = ev.target.closest(".dyn-block");
-  const id = block.id;
-
-  const text = block.querySelector(".text-input").value;
-  const enabled = block.querySelector(".enable-checkbox")?.checked ?? true;
-
-  if (id === "block1") {
-    document.getElementById("out1").textContent = text;
-  }
-
-  if (id === "block2") {
-    document.getElementById("out2").textContent = text;
-    document.getElementById("out2active").textContent = enabled ? "kyllä" : "ei";
-  }
-});
-
-document.addEventListener("click", (ev) => {
-  if (!ev.target.classList.contains("cancel-btn")) return;
-
-  const block = ev.target.closest(".dyn-block");
-  block.querySelector(".text-input").value = "";
-});
+<script src="grid-1.js">
 </script>
 
 </body>
